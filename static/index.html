@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="portale-token" content="__TOKEN__">
+  <meta name="theme-color" content="#e9eff8">
+  <title>OpenCode Portale</title>
+  <link rel="stylesheet" href="/style.css">
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <svg class="icon-defs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M13 5h6v6m0-6-9 9"/><path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></symbol>
+    <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 4h4m4 3-.8 12H6.8L6 7m4 4v5m4-5v5"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42m0-14.14-1.42 1.42m-11.3 11.3-1.42 1.42"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.4 15.7A8.5 8.5 0 0 1 8.3 3.6 8.5 8.5 0 1 0 20.4 15.7z"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4M4 17v3h16v-3"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01"/></symbol>
+  </svg>
+  <div class="background" aria-hidden="true"><div class="ambient ambient-one"></div><div class="ambient ambient-two"></div></div>
+  <div class="app-shell">
+    <aside class="sidebar glass" aria-label="Navigazione principale">
+      <div class="brand"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M11 25.5 22.5 9l7 6-7 10.5 7 7L37 22l5 5-12.5 17L11 25.5Z" fill="currentColor"/></svg></span><span><strong>OpenCode</strong><small>Portale</small></span></div>
+      <div class="nav-label">WORKSPACE</div>
+      <div class="nav-active"><svg class="icon"><use href="#i-grid"/></svg><span>Panoramica</span></div>
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-footer"><span class="status-dot" id="sidebar-dot"></span><span id="sidebar-status">Controllo OpenCode…</span></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar glass">
+        <div class="breadcrumb">Workspace <span aria-hidden="true">/</span> <strong>Panoramica</strong></div>
+        <div class="top-actions">
+          <span class="platform-label" id="platform-label">Locale · Questo computer</span>
+          <button class="icon-button" id="theme-button" type="button" aria-label="Cambia tema" title="Cambia tema"><svg class="icon"><use href="#i-moon"/></svg></button>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="welcome" aria-labelledby="welcome-title">
+          <div class="welcome-copy"><h1 id="welcome-title">Il tuo spazio di lavoro,<br><span>pronto a partire.</span></h1><p>Apri OpenCode nei tuoi progetti da un unico posto. Il pannello funziona in locale.</p></div>
+          <div class="hero-mark" aria-hidden="true"><div class="hero-mark-inner"><svg viewBox="0 0 48 48"><path d="M11 25.5 22.5 9l7 6-7 10.5 7 7L37 22l5 5-12.5 17L11 25.5Z" fill="currentColor"/></svg></div></div>
+        </section>
+
+        <section class="setup glass" id="setup" aria-labelledby="setup-title">
+          <div class="setup-icon"><svg class="icon"><use href="#i-check"/></svg></div>
+          <div class="setup-text"><h2 id="setup-title">Verifica installazione</h2><p id="install-detail">Controllo la disponibilità di OpenCode…</p></div>
+          <button class="button button-secondary" id="install-button" type="button" hidden><svg class="icon"><use href="#i-download"/></svg><span>Installa OpenCode</span></button>
+        </section>
+
+        <section class="projects-section" aria-labelledby="projects-title">
+          <div class="section-heading"><div><h2 id="projects-title">I tuoi progetti</h2><p>Seleziona una cartella per aprire OpenCode.</p></div><span class="count" id="project-count">0 progetti</span></div>
+          <form class="add-form glass" id="add-form">
+            <label for="project-path">Percorso completo della cartella</label>
+            <div class="add-row"><div class="input-wrap"><svg class="icon"><use href="#i-folder"/></svg><input id="project-path" name="path" type="text" autocomplete="off" spellcheck="false" placeholder="C:\Progetti\LaMiaApp oppure /home/nome/progetti/app" required></div><button class="button button-primary" type="submit"><svg class="icon"><use href="#i-plus"/></svg><span>Aggiungi progetto</span></button></div>
+            <p class="field-help">Puoi copiare il percorso dalla barra degli indirizzi del file manager.</p>
+          </form>
+          <div class="project-list" id="project-list" aria-live="polite"></div>
+        </section>
+
+        <footer class="footer"><span><svg class="icon"><use href="#i-info"/></svg> OpenCode si apre in una scheda del browser.</span><a href="https://opencode.ai/docs/" target="_blank" rel="noopener noreferrer">Guida ufficiale <svg class="icon"><use href="#i-external"/></svg></a></footer>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
