@@ -47,7 +47,7 @@ class PortaleTests(unittest.TestCase):
         project = Path(self.temp.name)
         status, _ = self.request("/api/add", {"path": str(project)})
         self.assertEqual(status, 200)
-        self.assertEqual(app.load_projects(), [str(project)])
+        self.assertEqual(app.load_projects(), [str(project.resolve())])
         _, result = self.request("/api/status")
         self.assertEqual(result["projects"][0]["name"], project.name)
         self.request("/api/remove", {"path": str(project)})
